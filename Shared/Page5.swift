@@ -8,9 +8,7 @@ struct Page5: View {
     NavigationView {
       List {
         ForEach(imageItems) { item in
-          NavigationLink {
-            ItemDetail(item: item)
-          } label: {
+          NavigationLink( destination: ItemDetail(item: item)) {
             ItemRow(item: item)
           }
         }
