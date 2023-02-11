@@ -24,7 +24,7 @@ struct Page1: View {
       Toggle(isOn: $fitFlag) {
         Text("Fit")
       }
-      Slider(value: $len, in: 100.0...400.0)
+      Slider(value: $len, in: 100.0...800.0)
       Text("len \(len)")
       Picker("Image Name", selection: $selectedImage) {
         Text("circle").tag("circle")
