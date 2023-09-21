@@ -1,52 +1,44 @@
 //
-// NavigationView
+// UIImage named from Resource folder
 
 import SwiftUI
+import UIKit
 
 struct Page5: View {
+  @State var len = 100.0
+  @State var fitFlag = true
+  @State var selectedImage = "circle"
   var body: some View {
-    NavigationView {
-      List {
-        ForEach(imageItems) { item in
-          NavigationLink( destination: ItemDetail(item: item)) {
-            ItemRow(item: item)
-          }
-        }
+    VStack() {
+      Spacer()
+      ZStack {
+        Image(uiImage: UIImage(named: "jht.jpg")!)
+          .resizable()
+          .aspectRatio(contentMode: fitFlag ? .fit : .fill)
+          .frame(width:len, height: len)
+        Image(systemName: selectedImage)
+          .resizable()
+          .frame(width:len, height: len)
       }
-      .navigationTitle("ITP")
-    }
-  }
-}
-
-struct ItemDetail: View {
-  var item:Item
-  var body: some View {
-    VStack {
-      Image(uiImage: imageFor(string: item.urlStr))
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-      Text(item.name)
       Spacer()
+      Toggle(isOn: $fitFlag) {
+        Text("Fit")
+      }
+      Slider(value: $len, in: 100.0...800.0)
+      Text("len \(len)")
+      Picker("Image Name", selection: $selectedImage) {
+        Text("circle").tag("circle")
+        Text("flag").tag("flag")
+        Text("ear").tag("ear")
+      }
     }
   }
 }
 
-struct ItemRow: View {
-  var item:Item
-  var body: some View {
-    HStack {
-      Image(uiImage: imageFor(string: item.urlStr))
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .frame(width:100, height: 100)
-      Text(item.name)
-      Spacer()
-    }
-  }
-}
-
-struct Page5_Previews: PreviewProvider {
+struct Page1_Previews: PreviewProvider {
   static var previews: some View {
-    Page5()
+    Page1()
   }
 }
+
+

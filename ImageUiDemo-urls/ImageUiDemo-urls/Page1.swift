@@ -1,44 +1,53 @@
 //
-// UIImage named from Resource folder
+//  UIImage from URL
 
 import SwiftUI
-import UIKit
+
+// Array of image url strings
+let imageArray = [
+  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/dan-osullivan1.jpg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/alumni/ari_headshot.jpg.preset.square.jpeg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/GabePattern5.jpg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/Sarah-Rothberg.jpg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/clay-shirky.jpg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/GeneralPics/katherinedillon.jpg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/alumni/pedro.galvao.jpg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/Luisa-Pereira.jpg.preset.square.jpeg",
+  "https://tisch.nyu.edu/content/dam/tisch/itp/alumni/raaziq-brown.jpg.preset.square.jpeg?",
+  "https://jht1493.net/a1/skt/assets/webdb/jht/IMG_4491.JPEG",
+  "https://jht1493.net/a1/skt/assets/webdb/jht/IMG_7555.JPEG",
+]
+
+// Read in an image from the array of url strings
+func imageFor( index: Int) -> UIImage {
+  let urlStr = imageArray[index % imageArray.count]
+  return imageFor(string: urlStr)
+}
+
+// Read in an image from a url string
+func imageFor(string str: String) -> UIImage {
+  let url = URL(string: str)
+  let imgData = try? Data(contentsOf: url!)
+  let uiImage = UIImage(data:imgData!)
+  return uiImage!
+}
 
 struct Page1: View {
-  @State var len = 100.0
-  @State var fitFlag = true
-  @State var selectedImage = "circle"
   var body: some View {
-    VStack() {
-      Spacer()
-      ZStack {
-        Image(uiImage: UIImage(named: "jht.jpg")!)
+    VStack {
+      ForEach(0 ..< 8) { index in
+        Image(uiImage: imageFor(index: index))
           .resizable()
-          .aspectRatio(contentMode: fitFlag ? .fit : .fill)
-          .frame(width:len, height: len)
-        Image(systemName: selectedImage)
-          .resizable()
-          .frame(width:len, height: len)
-      }
-      Spacer()
-      Toggle(isOn: $fitFlag) {
-        Text("Fit")
-      }
-      Slider(value: $len, in: 100.0...800.0)
-      Text("len \(len)")
-      Picker("Image Name", selection: $selectedImage) {
-        Text("circle").tag("circle")
-        Text("flag").tag("flag")
-        Text("ear").tag("ear")
+          .frame(width:100, height: 100)
       }
     }
   }
 }
 
-struct Page1_Previews: PreviewProvider {
+struct Page2_Previews: PreviewProvider {
   static var previews: some View {
-    Page1()
+    Page2()
   }
 }
 
-
+// https://tisch.nyu.edu/about/directory

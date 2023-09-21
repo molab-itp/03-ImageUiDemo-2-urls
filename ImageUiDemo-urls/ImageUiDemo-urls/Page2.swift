@@ -1,53 +1,50 @@
 //
-//  UIImage from URL
+//  Item struct for more info about image
 
 import SwiftUI
 
+import UIKit
+
+struct Item : Identifiable {
+  let id = UUID()
+  var urlStr:String
+  var name:String
+}
+
 // Array of image url strings
-let imageArray = [
-  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/dan-osullivan1.jpg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/alumni/ari_headshot.jpg.preset.square.jpeg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/GabePattern5.jpg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/Sarah-Rothberg.jpg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/clay-shirky.jpg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/GeneralPics/katherinedillon.jpg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/alumni/pedro.galvao.jpg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/Faculty/Luisa-Pereira.jpg.preset.square.jpeg",
-  "https://tisch.nyu.edu/content/dam/tisch/itp/alumni/raaziq-brown.jpg.preset.square.jpeg?",
-  "https://jht1493.net/a1/skt/assets/webdb/jht/IMG_4491.JPEG",
-  "https://jht1493.net/a1/skt/assets/webdb/jht/IMG_7555.JPEG",
+let imageItems:[Item] = [
+  Item(urlStr: imageArray[0], name:"Dan O"),
+  Item(urlStr: imageArray[1], name:"Ari"),
+  Item(urlStr: imageArray[2], name:"Gabe"),
+  Item(urlStr: imageArray[3], name:"Sarah"),
+  Item(urlStr: imageArray[4], name:"Clay"),
+  Item(urlStr: imageArray[5], name:"Katherine"),
+  Item(urlStr: imageArray[6], name:"Pedro"),
+  Item(urlStr: imageArray[7], name:"Luisa"),
+  Item(urlStr: imageArray[8], name:"Raaziq"),
+  Item(urlStr: imageArray[9], name:"jht"),
+  Item(urlStr: imageArray[10], name:"jht"),
 ]
 
-// Read in an image from the array of url strings
-func imageFor( index: Int) -> UIImage {
-  let urlStr = imageArray[index % imageArray.count]
-  return imageFor(string: urlStr)
-}
-
-// Read in an image from a url string
-func imageFor(string str: String) -> UIImage {
-  let url = URL(string: str)
-  let imgData = try? Data(contentsOf: url!)
-  let uiImage = UIImage(data:imgData!)
-  return uiImage!
-}
 
 struct Page2: View {
   var body: some View {
     VStack {
-      ForEach(0 ..< 8) { index in
-        Image(uiImage: imageFor(index: index))
-          .resizable()
-          .frame(width:100, height: 100)
+      ForEach(imageItems) { item in
+        HStack {
+          Image(uiImage: imageFor(string: item.urlStr))
+            .resizable()
+            .frame(width:100, height: 100)
+          Text(item.name)
+          Spacer()
+        }
       }
     }
   }
 }
 
-struct Page2_Previews: PreviewProvider {
-  static var previews: some View {
-    Page2()
-  }
+struct Page3_Previews: PreviewProvider {
+    static var previews: some View {
+        Page3()
+    }
 }
-
-// https://tisch.nyu.edu/about/directory

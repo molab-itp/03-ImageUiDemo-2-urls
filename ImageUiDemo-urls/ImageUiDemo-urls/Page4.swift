@@ -1,27 +1,52 @@
 //
-// List for scrolling
+// NavigationView
 
 import SwiftUI
 
 struct Page4: View {
   var body: some View {
-    List {
-      ForEach(imageItems) { item in
-        HStack {
-          Image(uiImage: imageFor(string: item.urlStr))
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width:100, height: 100)
-          Text(item.name)
-          Spacer()
+    NavigationView {
+      List {
+        ForEach(imageItems) { item in
+          NavigationLink( destination: ItemDetail(item: item)) {
+            ItemRow(item: item)
+          }
         }
       }
+      .navigationTitle("ITP")
     }
   }
 }
 
-struct Page4_Previews: PreviewProvider {
+struct ItemDetail: View {
+  var item:Item
+  var body: some View {
+    VStack {
+      Image(uiImage: imageFor(string: item.urlStr))
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+      Text(item.name)
+      Spacer()
+    }
+  }
+}
+
+struct ItemRow: View {
+  var item:Item
+  var body: some View {
+    HStack {
+      Image(uiImage: imageFor(string: item.urlStr))
+        .resizable()
+        .aspectRatio(contentMode: .fit)
+        .frame(width:100, height: 100)
+      Text(item.name)
+      Spacer()
+    }
+  }
+}
+
+struct Page5_Previews: PreviewProvider {
   static var previews: some View {
-    Page4()
+    Page5()
   }
 }
