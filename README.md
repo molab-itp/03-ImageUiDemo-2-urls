@@ -2,12 +2,12 @@
 
 Using NavigationView to create list of images references using URL
 
-- Page1: UIImage named from Resource folder
+- Page1: UIImage from URL
 
-- Page2: UIImage from URL
+- Page2: Item struct for more info about image
 
-- Page3: Item struct for more info about image
+- Page3: List for scrolling
 
-- Page4: List for scrolling
+- Page4: NavigationView with ItemDetail and ItemRow
 
-- Page5: NavigationView with ItemDetail and ItemRow
+- Page5: UIImage named from Resource folder
