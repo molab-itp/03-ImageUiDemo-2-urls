@@ -11,7 +11,8 @@ import SwiftUI
 struct ImageUiDemo_urlsApp: App {
     var body: some Scene {
         WindowGroup {
-            Page1()
+            // This is the starting page for the app
+            Page4();
         }
     }
 }
