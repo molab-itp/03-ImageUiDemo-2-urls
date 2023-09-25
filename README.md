@@ -11,3 +11,5 @@ Using NavigationView to create list of images references using URL
 - Page4: NavigationView with ItemDetail and ItemRow
 
 - Page5: UIImage named from Resource folder
+    - @State
+    - ui elements: Toggle, Slider, Picker
