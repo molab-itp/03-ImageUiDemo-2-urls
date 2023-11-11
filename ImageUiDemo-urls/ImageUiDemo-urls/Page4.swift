@@ -12,6 +12,9 @@ struct Page4: View {
                         ItemRow(item: item)
                     }
                 }
+                NavigationLink( destination: Page5()) {
+                    Text("JHT on Page5")
+                }
             }
             .navigationTitle("ITP")
         }
