@@ -12,7 +12,8 @@ struct Page5: View {
         VStack() {
             Spacer()
             ZStack {
-                Image(uiImage: UIImage(named: "jht.jpg")!)
+                // Image(uiImage: UIImage(named: "jht.jpg")!)
+                Image("jht")
                     .resizable()
                     .aspectRatio(contentMode: fitFlag ? .fit : .fill)
                     .frame(width:len, height: len)
