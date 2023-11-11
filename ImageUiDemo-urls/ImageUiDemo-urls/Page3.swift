@@ -12,7 +12,7 @@ struct Page3: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width:100, height: 100)
-                    Text(item.name)
+                    Text(item.label)
                     Spacer()
                 }
             }

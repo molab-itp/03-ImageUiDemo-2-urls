@@ -7,13 +7,15 @@ struct Page4: View {
     var body: some View {
         NavigationView {
             List {
+                NavigationLink( destination: Page5()) {
+                    Text("JHT on Page5")
+                        .font(.title)
+                        .bold()
+                }
                 ForEach(imageItems) { item in
                     NavigationLink( destination: ItemDetail(item: item)) {
                         ItemRow(item: item)
                     }
-                }
-                NavigationLink( destination: Page5()) {
-                    Text("JHT on Page5")
                 }
             }
             .navigationTitle("ITP")
@@ -28,7 +30,7 @@ struct ItemDetail: View {
             Image(uiImage: imageFor(string: item.urlStr))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-            Text(item.name)
+            Text(item.label)
             Spacer()
         }
     }
@@ -42,7 +44,7 @@ struct ItemRow: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width:100, height: 100)
-            Text(item.name)
+            Text(item.label)
             Spacer()
         }
     }

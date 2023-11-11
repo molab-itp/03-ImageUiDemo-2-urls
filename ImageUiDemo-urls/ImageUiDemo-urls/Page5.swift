@@ -5,18 +5,21 @@ import SwiftUI
 import UIKit
 
 struct Page5: View {
-    @State var len = 100.0
+    @State var len = 400.0
     @State var fitFlag = true
     @State var selectedImage = "circle"
     var body: some View {
         VStack() {
             Spacer()
             ZStack {
+                //-- image from app bundle
                 // Image(uiImage: UIImage(named: "jht.jpg")!)
+                //-- image from Assets.xcassets
                 Image("jht")
                     .resizable()
                     .aspectRatio(contentMode: fitFlag ? .fit : .fill)
                     .frame(width:len, height: len)
+                //-- image from SF Symbols
                 Image(systemName: selectedImage)
                     .resizable()
                     .frame(width:len, height: len)
