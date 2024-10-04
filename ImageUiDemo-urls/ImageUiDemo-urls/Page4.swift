@@ -50,9 +50,7 @@ struct ItemRow: View {
     }
 }
 
-struct Page4_Previews: PreviewProvider {
-    static var previews: some View {
-        Page4()
-    }
+#Preview {
+    Page4()
 }
 

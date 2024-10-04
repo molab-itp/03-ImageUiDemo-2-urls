@@ -20,8 +20,6 @@ struct Page3: View {
     }
 }
 
-struct Page3_Previews: PreviewProvider {
-    static var previews: some View {
-        Page3()
-    }
+#Preview {
+    Page3()
 }
