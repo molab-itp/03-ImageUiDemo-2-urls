@@ -8,7 +8,7 @@ struct Page4: View {
         NavigationView {
             List {
                 NavigationLink( destination: Page5()) {
-                    Text("JHT on Page5")
+                    Text("on Page4")
                         .font(.title)
                         .bold()
                 }
