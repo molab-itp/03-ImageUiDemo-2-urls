@@ -4,6 +4,13 @@
 import SwiftUI
 import UIKit
 
+/*
+ - ui elements: Toggle, Slider, Picker
+ - @State
+ - Image named in Assets catalog
+ - UIImage named in Resource folder
+ */
+
 struct Page5: View {
     @State var len = 400.0
     @State var fitFlag = true
