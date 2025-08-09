@@ -8,7 +8,7 @@ struct Page4: View {
         NavigationView {
             List {
                 NavigationLink( destination: Page5()) {
-                    Text("on Page4")
+                    Text("go Page5")
                         .font(.title)
                         .bold()
                 }
@@ -18,7 +18,7 @@ struct Page4: View {
                     }
                 }
             }
-            .navigationTitle("ITP")
+            .navigationTitle("Page 4 - ITP Faculty")
         }
     }
 }
