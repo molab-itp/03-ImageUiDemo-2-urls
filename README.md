@@ -15,3 +15,9 @@ Using NavigationView to create list of images references using URL
     - @State
     - Image named in Assets catalog
     - UIImage named in Resource folder
+
+```
+
+>> Updated to use AsyncImage
+
+```

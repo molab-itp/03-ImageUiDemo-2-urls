@@ -26,13 +26,25 @@ struct Page4: View {
 struct ItemDetail: View {
     var item:Item
     var body: some View {
-        VStack {
-            Image(uiImage: imageFor(string: item.urlStr))
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Text(item.label)
-            Spacer()
+      VStack {
+        // Image(uiImage: imageFor(string: item.urlStr))
+        //  .resizable()
+        //  .aspectRatio(contentMode: .fit)
+        AsyncImage(url: URL(string: item.urlStr)) { phase in
+          if let image = phase.image {
+            image // Displays the loaded image.
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+            // .frame(width:100, height: 100)
+          } else if phase.error != nil {
+            Color.red // Indicates an error.
+          } else {
+            Color.blue // Acts as a placeholder.
+          }
+          Text(item.label)
+          Spacer()
         }
+      }
     }
 }
 
@@ -40,10 +52,11 @@ struct ItemRow: View {
     var item:Item
     var body: some View {
         HStack {
-            Image(uiImage: imageFor(string: item.urlStr))
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width:100, height: 100)
+            // Image(uiImage: imageFor(string: item.urlStr))
+            //  .resizable()
+            //  .aspectRatio(contentMode: .fit)
+            //  .frame(width:100, height: 100)
+            ImageThumb(urlString: item.urlStr);
             Text(item.label)
             Spacer()
         }
