@@ -35,7 +35,8 @@ struct Page1: View {
           } else if phase.error != nil {
             Color.red // Indicates an error.
           } else {
-            Color.blue // Acts as a placeholder.
+//            Color.blue  // Acts as a placeholder.
+            ProgressView()
           }
         }
       }
