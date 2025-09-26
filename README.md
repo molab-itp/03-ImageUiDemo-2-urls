@@ -1,6 +1,8 @@
 # [03-ImageUiDemo-2-urls](https://github.com/molab-itp/03-ImageUiDemo-2-urls)
 
-Using NavigationView to create list of images references using URL
+- Using NavigationView to create list of images references using URL
+
+- AsyncImage to load image from url
 
 - Page1: UIImage from URL
 
