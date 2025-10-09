@@ -41,9 +41,9 @@ struct ItemDetail: View {
           } else {
             Color.blue // Acts as a placeholder.
           }
-          Text(item.label)
-          Spacer()
         }
+        Text(item.label).font(.title)
+        Spacer()
       }
     }
 }
