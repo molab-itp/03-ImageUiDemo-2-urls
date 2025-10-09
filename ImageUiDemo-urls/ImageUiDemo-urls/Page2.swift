@@ -32,9 +32,9 @@ struct Page2: View {
     VStack {
       ForEach(imageItems) { item in
         HStack {
-          // Image(uiImage: imageFor(string: item.urlStr))
-          // .resizable()
-          // .frame(width:100, height: 100)
+//           Image(uiImage: imageFor(string: item.urlStr))
+//           .resizable()
+//           .frame(width:100, height: 100)
           ImageThumb(urlString: item.urlStr);
           Text(item.label)
           Spacer()
@@ -44,6 +44,8 @@ struct Page2: View {
   }
 }
 
+// ImageThumb AsyncImage replaces sync Image imageFor
+//
 struct ImageThumb: View {
   var urlString:String
   var body: some View {
@@ -56,7 +58,7 @@ struct ImageThumb: View {
       } else if phase.error != nil {
         Color.red // Indicates an error.
       } else {
-//        Color.blue  //Acts as a placeholder.
+        // Acts as a placeholder.
         ProgressView()
       }
     }

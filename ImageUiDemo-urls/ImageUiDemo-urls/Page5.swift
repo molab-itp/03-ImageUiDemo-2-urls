@@ -22,7 +22,7 @@ struct Page5: View {
                 //-- image from app bundle
                 // Image(uiImage: UIImage(named: "jht.jpg")!)
                 //-- image from Assets.xcassets
-                Image("jht")
+                Image("jht2025")
                     .resizable()
                     .aspectRatio(contentMode: fitFlag ? .fit : .fill)
                     .frame(width:len, height: len)

@@ -19,6 +19,7 @@
     - UIImage named in Resource folder
 
 ```
+// ImageThumb AsyncImage replaces sync Image imageFor
 
 >> Updated to use AsyncImage
 
