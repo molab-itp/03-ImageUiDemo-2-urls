@@ -23,7 +23,7 @@ let imageItems:[Item] = [
   Item(urlStr: imageArray[7], label:"Luisa"),
   Item(urlStr: imageArray[8], label:"Raaziq"),
   Item(urlStr: imageArray[9], label:"jht1"),
-  Item(urlStr: imageArray[10], label:"jht2"),
+//  Item(urlStr: imageArray[10], label:"jht2"),
 ]
 
 
