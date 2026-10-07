@@ -20,7 +20,10 @@ struct Page5: View {
             Spacer()
             ZStack {
                 //-- image from app bundle
-                // Image(uiImage: UIImage(named: "jht.jpg")!)
+                Image(uiImage: UIImage(named: "jht-cu-2.png")!)
+//              jht.jpg
+//              jht-cu-1.png
+//              jht-cu-2.png
                 //-- image from Assets.xcassets
                 Image("jht2025")
                     .resizable()
@@ -37,7 +40,7 @@ struct Page5: View {
             }
             Slider(value: $len, in: 100.0...800.0)
             Text("len \(len)")
-            Picker("Image Name", selection: $selectedImage) {
+            Picker("Image systemName", selection: $selectedImage) {
                 Text("circle").tag("circle")
                 Text("flag").tag("flag")
                 Text("ear").tag("ear")
