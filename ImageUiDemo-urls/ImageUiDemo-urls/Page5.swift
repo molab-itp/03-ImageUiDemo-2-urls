@@ -25,10 +25,10 @@ struct Page5: View {
 //              jht-cu-1.png
 //              jht-cu-2.png
                 //-- image from Assets.xcassets
-                Image("jht2025")
-                    .resizable()
-                    .aspectRatio(contentMode: fitFlag ? .fit : .fill)
-                    .frame(width:len, height: len)
+//                Image("jht2025")
+//                    .resizable()
+//                    .aspectRatio(contentMode: fitFlag ? .fit : .fill)
+//                    .frame(width:len, height: len)
                 //-- image from SF Symbols
                 Image(systemName: selectedImage)
                     .resizable()
